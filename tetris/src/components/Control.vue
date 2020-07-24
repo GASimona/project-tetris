@@ -1,11 +1,12 @@
 <template>
     <div class="control">
         <div class="moveButtono">
+            <button class="buttonDown">↓↓</button>
             <div>
                 <button class="buttonLeft">←</button>
                 <button class="buttonRight">→</button>
             </div>
-            <button class="buttonDown">↓</button>
+            <button class="buttonDownFinish">↓</button>
         </div>
         <div class="resetPauseRotate">
             <div class="buttonSettings">
@@ -32,34 +33,41 @@
         top: 5%;
         
     }
-    .buttonLeft, .buttonRight, .buttonDown {
+    .buttonLeft, .buttonRight, .buttonDown, .buttonDownFinish {
         width: 4em;
         height: 4em;
-        border-radius: 50%;
+        border-radius: 30%;
         margin: 0.5em;
+        background-color: brown;
+        position: relative;
+        top: -2em;
     }
 
     .buttonLeft {
-        margin-right: 3em;
-    }
-    .buttonDown {
+        margin-right: 4em;
         position: relative;
-        left: 3.5em;
+        left: -2em;
+    }
+    .buttonDown, .buttonDownFinish {
+        position: relative;
+        left: 2.5rem;
     }
 
     .buttonReset, .buttonPause, .buttonSound {
         width: 2em;
         height: 2em;
-        border-radius: 50%;
+        border-radius: 30%;
         margin: 0.5em;
+        background-color: rgb(224, 170, 89);
     }
     .buttonRotate {
         width: 2em;
         height: 2em;
-        border-radius: 50%;
+        border-radius: 30%;
         margin: 0.1em;
         font-size: 2em;
         position: relative;
         left: 1em;
+        background-color: brown;
     }
 </style>
