@@ -4,7 +4,7 @@
                 <p>NEXT</p>
                 <table class="nextPiece">
                     <tr v-for="line of lines" v-bind:key="line">
-                        <td class="active" v-for="column of columns" v-bind:key="column">
+                        <td v-for="column of columns" v-bind:key="column">
                         </td>
                     </tr>
                 </table>
@@ -71,7 +71,7 @@ export default {
     table {
         position: relative;
         margin: auto;
-        background-color: rgb(161, 161, 161);
+        padding: 2%;
     } 
     td {
         width: 7px;

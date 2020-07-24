@@ -20,8 +20,8 @@
 
 <style scoped>
   .content {
-      width: 100%;
-      height: 70%;
+      width: 40vw;
+      height: 35vw;
       border: 2px solid rgb(0, 0, 0);
       display: flex;
       flex-direction: row;
