@@ -25,7 +25,7 @@
 
 <style scoped>
     .control {
-        width: 100%;
+        width: 40vw;
         height: 20%;
         display: flex;
         justify-content: space-around;

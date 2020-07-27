@@ -2,12 +2,7 @@
     <div class="details">
             <div >
                 <p>NEXT</p>
-                <table class="nextPiece">
-                    <tr v-for="line of lines" v-bind:key="line">
-                        <td v-for="column of columns" v-bind:key="column">
-                        </td>
-                    </tr>
-                </table>
+                <Table lineD="4" columnD="4"></Table>    
             </div>
             <div class="hiScore">
                 <p>HI-SCORE</p>
@@ -25,8 +20,13 @@
 </template>
 
 <script>
+import Table from './Table.vue'
 
 export default {
+    name: "Info",
+    components: {
+        Table
+    },
     data() {
         let createLines = [];
         let createColumns = [];
@@ -67,29 +67,5 @@ export default {
     }
     div, p {
         background-color:  rgb(148, 163, 125);
-    }
-    table {
-        position: relative;
-        margin: auto;
-        padding: 2%;
-    } 
-    td {
-        width: 7px;
-        height: 7px;
-        border: 3px solid rgb(150, 150, 150);
-        padding: 2px;
-    }
-    td::after {
-        width: 7px;
-        height: 7px;
-        content: "";
-        background-color: rgb(150, 150, 150);
-        display: block;
-    }
-    td.active {
-        border-color: black;
-    }
-    td.active::after {
-        background-color: black;
     }
 </style>
