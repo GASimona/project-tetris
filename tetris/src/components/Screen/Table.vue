@@ -3,13 +3,18 @@
     <tr v-for="line of lines" v-bind:key="line">
       <td v-for="column of columns" 
       v-bind:key="column" 
-      :class="{active: tableInfo && nextPiece.matrix[line][column]}"></td>
+      :class="{active: 
+                (tableInfo && nextPiece.matrix[line][column]) || 
+                (!tableInfo && tableGame.matrix[line][column])
+        }"></td>
     </tr>
   </table>
 </template>
 
 <script>
 import store from "../../store/index.js";
+store.commit('activateNextPiece');
+
 
 export default {
   name: "Table",
@@ -36,6 +41,9 @@ export default {
     nextPiece: function () {
       return store.getters.nextPiece;
     },
+    tableGame: function () {
+        return store.getters.tableGame;
+    }
   },
 };
 </script>

@@ -1,16 +1,26 @@
 <template>
   <div class="board">
-    <Table lineD="10" columnD="7"></Table>
+    <Table v-bind:lineD="numberLineTableGame" 
+           v-bind:columnD="numberColumnTableGame"></Table>
   </div>
 </template>
 
 <script>
 import Table from "./Table.vue";
+import store from "../../store/index.js"
 
 export default {
   name: "Display",
   components: {
     Table,
+  },
+  computed: {
+      numberLineTableGame: () => {
+          return store.getters.numberLineTableGame
+      },
+      numberColumnTableGame: () => {
+          return store.getters.numberColumnTableGame
+      }
   },
 };
 </script>
