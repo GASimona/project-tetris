@@ -1,38 +1,41 @@
 <template>
-
-    <table>
-      <tr v-for="line of lines" v-bind:key="line">
-        <td v-for="column of columns" v-bind:key="column"></td>
-      </tr>
-    </table>
-
+  <table>
+    <tr v-for="line of lines" v-bind:key="line">
+      <td v-for="column of columns" 
+      v-bind:key="column" 
+      :class="{active: tableInfo && nextPiece.matrix[line][column]}"></td>
+    </tr>
+  </table>
 </template>
 
 <script>
-// import Display from './Display.vue'
+import store from "../../store/index.js";
 
 export default {
   name: "Table",
   components: {},
-  props: ['lineD', 'columnD'],
-  data: function() {
-    let createLines = [];
-    let createColumns = [];
-    let nrLine = this.lineD;
-    let nrColumn = this.columnD;
-
-    for (let i = 0; i < nrLine; i++) {
-      createLines.push(i);
-    }
-    for (let i = 0; i < nrColumn; i++) {
-      createColumns.push(i);
-    }
-
-    return {
-      lines: createLines,
-      columns: createColumns,
-
-    };
+  props: ["lineD", "columnD", "tableInfo"],
+  methods: {},
+  computed: {
+    lines: function () {
+      let createLines = [];
+      let nrLine = this.lineD;
+      for (let i = 0; i < nrLine; i++) {
+        createLines.push(i);
+      }
+      return createLines;
+    },
+    columns: function () {
+      let createColumns = [];
+      let nrColumn = this.columnD;
+      for (let i = 0; i < nrColumn; i++) {
+        createColumns.push(i);
+      }
+      return createColumns;
+    },
+    nextPiece: function () {
+      return store.getters.nextPiece;
+    },
   },
 };
 </script>

@@ -20,6 +20,10 @@
 </template>
 
 <script>
+export default {
+  name: "Control",
+  components: {},
+};
 
 </script>
 

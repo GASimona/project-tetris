@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import Screen from './Screen/Screen.vue'
+  import Screen from './screen/Screen.vue'
   import Control from './Control.vue'
 
   export default {
