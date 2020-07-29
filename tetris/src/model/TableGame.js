@@ -4,6 +4,7 @@ export default class TableGame {
         this.line = line;
         this.column = column;
         this.matrix = [];
+
         for (let i = 0; i < line; i++) {
             this.matrix.push([])
             for (let j = 0; j < column; j++) {

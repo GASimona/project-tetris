@@ -14,6 +14,7 @@ Vue.use(Vuex);
 let numberLine = 15;
 let numberColumn = 10;
 
+
 export default new Vuex.Store({
   state: {
     pieces: [
@@ -29,13 +30,13 @@ export default new Vuex.Store({
     currentPieceIndex: 0,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
-    tableGame: new TableGame(numberLine, numberColumn) 
+    tableGame: new TableGame(numberLine, numberColumn)
   },
 
   mutations: {
     activateNextPiece: (state) => {
         state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex])
-    }  
+    }
   },
   getters: {
     nextPiece: (state) => state.pieces[state.nextPieceIndex],
