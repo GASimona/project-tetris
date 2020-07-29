@@ -27,8 +27,9 @@ export default {
 
 <style scoped>
 div {
-  width: 50vw;
-  /* height: 458px; */
+  padding: 1em;
+  /* width: 60vw; */
+  border: 2px solid rgb(0, 0, 0);
   background-color: rgb(124, 136, 105);
 }
 </style>

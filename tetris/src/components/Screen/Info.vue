@@ -44,9 +44,10 @@ export default {
 
 <style scoped>
 .details {
-  width: 40%;
+  padding-left: 1em;
+  padding-right: 1em;
   background-color: rgb(148, 163, 125);
-  border-left: 2px solid rgb(0, 0, 0);
+  border: 2px solid black;
 }
 div,
 p {

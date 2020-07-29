@@ -11,7 +11,7 @@ import TableGame from "../model/TableGame";
 
 Vue.use(Vuex);
 
-let numberLine = 15;
+let numberLine = 20;
 let numberColumn = 10;
 
 

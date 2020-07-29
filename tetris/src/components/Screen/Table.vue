@@ -51,7 +51,6 @@ export default {
 <style scoped>
 table {
   position: relative;
-  top: 1vw;
   padding: 2%;
   margin: auto;
 }

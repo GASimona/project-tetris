@@ -22,8 +22,7 @@
 
 <style scoped>
   .game {
-    width: 50vw;
-    height: 50vw;
+    /* width: 50vw; */
     border: 0.2em solid black;
     position: relative;
     margin: auto;

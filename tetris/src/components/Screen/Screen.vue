@@ -20,9 +20,7 @@ export default {
 
 <style scoped>
 .content {
-  width: 40vw;
-  height: 35vw;
-  border: 2px solid rgb(0, 0, 0);
+  /* width: 0vw; */
   display: flex;
   flex-direction: row;
 }

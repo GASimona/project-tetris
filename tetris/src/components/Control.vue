@@ -55,11 +55,8 @@ export default {
 <style scoped>
 .control {
   width: 40vw;
-  height: 20%;
   display: flex;
   justify-content: space-around;
-  position: relative;
-  top: 5%;
 }
 .buttonLeft,
 .buttonRight,
@@ -70,8 +67,6 @@ export default {
   border-radius: 30%;
   margin: 0.5em;
   background-color: brown;
-  position: relative;
-  top: -2em;
 }
 
 .buttonLeft {
