@@ -1,20 +1,20 @@
 <template>
   <div class="details">
-    <div>
-      <p>NEXT</p>
-      <Table lineD="4" columnD="4" tableInfo="true"></Table>
+    <div class="score">
+      <p>SCORE</p>
+      <div>{{ scoreValue }}</div>
     </div>
     <div class="hiScore">
       <p>HI-SCORE</p>
       <div>{{ hiScoreValue }}</div>
     </div>
-    <div class="score">
-      <p>SCORE</p>
-      <div>{{ scoreValue }}</div>
-    </div>
     <div class="level">
       <p>LEVEL</p>
       <div>{{ levelValue }}</div>
+    </div>
+    <div>
+      <p>NEXT</p>
+      <Table lineD="4" columnD="4" tableInfo="true"></Table>
     </div>
   </div>
 </template>

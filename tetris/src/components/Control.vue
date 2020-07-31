@@ -56,8 +56,6 @@ export default {
 .control {
   display: flex;
   justify-content: center;
-  /* margin-top: 1em; */
-  /* margin-bottom: 1em; */
   background-color: rgb(230, 226, 18);
   border: 0.2em solid rgb(241, 239, 85);
   border-top: 0;
