@@ -28,8 +28,8 @@ export default {
 <style scoped>
 div {
   padding: 1em;
-  /* width: 60vw; */
   border: 2px solid rgb(0, 0, 0);
-  background-color: rgb(124, 136, 105);
+  border-right: 0;
+  background-color: rgb(161, 168, 149);
 }
 </style>

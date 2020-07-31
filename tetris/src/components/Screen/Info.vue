@@ -12,7 +12,7 @@
       <p>SCORE</p>
       <div>{{ scoreValue }}</div>
     </div>
-    <div>
+    <div class="level">
       <p>LEVEL</p>
       <div>{{ levelValue }}</div>
     </div>
@@ -46,11 +46,15 @@ export default {
 .details {
   padding-left: 1em;
   padding-right: 1em;
-  background-color: rgb(148, 163, 125);
+  background-color: rgb(161, 168, 149);
   border: 2px solid black;
+  border-left: 0;
 }
 div,
 p {
-  background-color: rgb(148, 163, 125);
+  background-color: rgb(161, 168, 149);
+}
+.hiScore div, .score div, .level div {
+  text-align: right;
 }
 </style>

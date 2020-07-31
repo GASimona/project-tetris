@@ -48,36 +48,54 @@ export default {
     buttonRotate() {
       console.log("Roteste piesa");
     },
-  }
+  },
 };
 </script>
 
 <style scoped>
 .control {
-  width: 40vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  /* margin-top: 1em; */
+  /* margin-bottom: 1em; */
+  background-color: rgb(230, 226, 18);
+  border: 0.2em solid rgb(241, 239, 85);
+  border-top: 0;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  padding-bottom: 1em;
+}
+.moveButtono {
+    position: relative;
+    left: 1em;
+}
+.moveButtono,
+.moveButtono div {
+  background-color: rgb(230, 226, 18);
 }
 .buttonLeft,
 .buttonRight,
 .buttonDown,
 .buttonDownFinish {
-  width: 4em;
-  height: 4em;
-  border-radius: 30%;
-  margin: 0.5em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
   background-color: brown;
 }
 
 .buttonLeft {
-  margin-right: 4em;
+  margin-right: 3em;
+  position: relative;
+  left: -2em;
+}
+.buttonRight {
   position: relative;
   left: -2em;
 }
 .buttonDown,
 .buttonDownFinish {
   position: relative;
-  left: 2.5rem;
+  left: 1em;
 }
 
 .buttonReset,
@@ -85,18 +103,27 @@ export default {
 .buttonSound {
   width: 2em;
   height: 2em;
-  border-radius: 30%;
-  margin: 0.5em;
+  border-radius: 50%;
+  margin: 1em;
   background-color: rgb(224, 170, 89);
+  position: relative;
+  top: -1.25em;
 }
 .buttonRotate {
   width: 2em;
   height: 2em;
-  border-radius: 30%;
+  border-radius: 50%;
   margin: 0.1em;
   font-size: 2em;
   position: relative;
-  left: 1em;
+  left: 2em;
+  top: -0.5em;
   background-color: brown;
+}
+
+.resetPauseRotate,
+.resetPauseRotate .buttonSettings {
+  margin-left: 1em;
+  background-color: rgb(230, 226, 18);
 }
 </style>

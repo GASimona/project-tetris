@@ -25,7 +25,9 @@ export default class TableGame {
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
-                this.matrix[this.positionsLinePieceInTable + i][this.positionsColumnPieceInTable + j] = this.piece.matrix[i][j];
+                if (this.piece.matrix[i][j]) {
+                    this.matrix[this.positionsLinePieceInTable + i][this.positionsColumnPieceInTable + j] = this.piece.matrix[i][j];
+                }
             }
         }
     }

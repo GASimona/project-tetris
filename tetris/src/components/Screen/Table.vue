@@ -51,20 +51,23 @@ export default {
 <style scoped>
 table {
   position: relative;
-  padding: 2%;
+  padding: 5px;
   margin: auto;
+  background-color: rgb(196, 196, 196);
+  border: 1px solid black;
 }
 td {
   width: 0.5rem;
   height: 0.5rem;
-  border: 3px solid rgb(150, 150, 150);
+  border: 3px solid rgb(133, 133, 133);
   padding: 2px;
+  background-color: rgb(196, 196, 196);
 }
 td::after {
   width: 0.5rem;
   height: 0.5rem;
   content: "";
-  background-color: rgb(150, 150, 150);
+  background-color: rgb(133, 133, 133);
   display: block;
 }
 td.active {
