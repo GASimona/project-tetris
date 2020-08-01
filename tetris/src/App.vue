@@ -16,16 +16,20 @@ export default {
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+#app {
+  --bg-main-page: rgb(224, 211, 195);
+  --bg-frame: rgb(230, 226, 18);
+  --border-frame: rgb(241, 239, 85);
+  --bg-small-buttons: rgb(224, 170, 89);
+  --bg-big-buttons: brown;
+  --color-screen: rgb(161, 168, 149);
+  --bg-table: rgb(196, 196, 196);
+  --border-table: rgb(160, 160, 160);
+  --piece-color: black;
+  
+}
 
 * {
-  background-color: rgb(224, 211, 195);
+  background-color: var(--bg-main-page);
 }
 </style>

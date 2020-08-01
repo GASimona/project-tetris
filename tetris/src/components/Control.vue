@@ -56,8 +56,8 @@ export default {
 .control {
   display: flex;
   justify-content: center;
-  background-color: rgb(230, 226, 18);
-  border: 0.2em solid rgb(241, 239, 85);
+  background-color: var(--bg-frame);
+  border: 0.2em solid var(--border-frame);
   border-top: 0;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
@@ -69,7 +69,7 @@ export default {
 }
 .moveButtono,
 .moveButtono div {
-  background-color: rgb(230, 226, 18);
+  background-color: var(--bg-frame);
 }
 .buttonLeft,
 .buttonRight,
@@ -78,7 +78,7 @@ export default {
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  background-color: brown;
+  background-color: var(--bg-big-buttons);
 }
 
 .buttonLeft {
@@ -103,7 +103,7 @@ export default {
   height: 2em;
   border-radius: 50%;
   margin: 1em;
-  background-color: rgb(224, 170, 89);
+  background-color: var(--bg-small-buttons);
   position: relative;
   top: -1.25em;
 }
@@ -116,12 +116,12 @@ export default {
   position: relative;
   left: 2em;
   top: -0.5em;
-  background-color: brown;
+  background-color: var(--bg-big-buttons);
 }
 
 .resetPauseRotate,
 .resetPauseRotate .buttonSettings {
   margin-left: 1em;
-  background-color: rgb(230, 226, 18);
+  background-color: var(--bg-frame);
 }
 </style>

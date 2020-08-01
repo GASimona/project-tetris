@@ -28,8 +28,8 @@ export default {
 <style scoped>
 div {
   padding: 1em;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid black;
   border-right: 0;
-  background-color: rgb(161, 168, 149);
+  background-color: var(--color-screen);
 }
 </style>

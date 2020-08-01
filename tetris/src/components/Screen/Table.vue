@@ -53,27 +53,27 @@ table {
   position: relative;
   padding: 5px;
   margin: auto;
-  background-color: rgb(196, 196, 196);
-  border: 1px solid black;
+  background-color: var(--bg-table);
+  border: 1px solid black
 }
 td {
   width: 0.5rem;
   height: 0.5rem;
-  border: 3px solid rgb(133, 133, 133);
+  border: 3px solid var(--border-table);
   padding: 2px;
-  background-color: rgb(196, 196, 196);
+  background-color: var(--bg-table);
 }
 td::after {
   width: 0.5rem;
   height: 0.5rem;
   content: "";
-  background-color: rgb(133, 133, 133);
+  background-color: var(--border-table);
   display: block;
 }
 td.active {
-  border-color: black;
+  border-color: var(--piece-color);
 }
 td.active::after {
-  background-color: black;
+  background-color: var(--piece-color);
 }
 </style>

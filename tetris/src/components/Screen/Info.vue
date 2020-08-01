@@ -46,13 +46,13 @@ export default {
 .details {
   padding-left: 1em;
   padding-right: 1em;
-  background-color: rgb(161, 168, 149);
+  background-color: var(--color-screen);
   border: 2px solid black;
   border-left: 0;
 }
 div,
 p {
-  background-color: rgb(161, 168, 149);
+  background-color: var(--color-screen);
 }
 .hiScore div, .score div, .level div {
   text-align: right;

@@ -21,8 +21,11 @@ export default {
 </script>
 
 <style scoped>
+
 .game {
   display: flex;
   justify-content: center;
+  padding: 1em;
 }
+
 </style>

@@ -26,18 +26,18 @@ h1 {
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
-  background-color:rgb(230, 226, 18);
+  background-color: var(--bg-frame);
   position: relative;
 }
 
 .borderDesignScreen {
-  background-color: rgb(230, 226, 18);
+  background-color: var(--bg-frame);
   padding-top: 1em;
   padding-bottom: 2em;
   padding-left: 3em;
   padding-right: 3em;
   margin: auto;
-  border: 0.2em solid rgb(241, 239, 85);
+  border: 0.2em solid var(--border-frame);
   border-bottom: 0;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
@@ -45,6 +45,5 @@ h1 {
 .content {
   display: flex;
   justify-content: center;
-  background-color: rgb(230, 226, 18);
 }
 </style>
