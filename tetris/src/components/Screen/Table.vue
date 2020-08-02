@@ -1,20 +1,22 @@
 <template>
   <table>
-    <tr v-for="line of lines" v-bind:key="line">
-      <td v-for="column of columns" 
-      v-bind:key="column" 
-      :class="{active: 
+    <tr v-for="line of lines" :key="line">
+      <td
+        v-for="column of columns"
+        :key="column"
+        :class="{active: 
                 (tableInfo && nextPiece.matrix[line][column]) || 
                 (!tableInfo && tableGame.matrix[line][column])
-        }"></td>
+        }"
+      ></td>
     </tr>
+    <tr style="display: none">Here it is {{tableGame}}</tr>
   </table>
 </template>
 
 <script>
 import store from "../../store/index.js";
-store.commit('activateNextPiece');
-
+store.commit("activateNextPiece");
 
 export default {
   name: "Table",
@@ -42,8 +44,8 @@ export default {
       return store.getters.nextPiece;
     },
     tableGame: function () {
-        return store.getters.tableGame;
-    }
+      return store.getters.tableGame;
+    },
   },
 };
 </script>
@@ -54,7 +56,7 @@ table {
   padding: 5px;
   margin: auto;
   background-color: var(--bg-table);
-  border: 1px solid black
+  border: 1px solid black;
 }
 td {
   width: 0.5rem;

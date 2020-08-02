@@ -1,40 +1,54 @@
 <template>
   <div class="control">
     <div class="moveButtono">
-      <input type="button" @click="buttonDownFinish" value="↓↓" class="buttonDownFinish" />
+      <input type="button" @click="buttonDownFinish()" value="↓↓" class="buttonDownFinish" />
       <div>
-        <input type="button" @click="buttonLeft" value="←" class="buttonLeft" />
-        <input type="button" @click="buttonRight" value="→" class="buttonRight" />
+        <input type="button" @click="buttonLeft()" value="←" class="buttonLeft" />
+        <input type="button" @click="buttonRight()" value="→" class="buttonRight" />
       </div>
-      <input type="button" @click="buttonDown" value="↓" class="buttonDown" />
+      <input type="button" @click="buttonDown()" value="↓" class="buttonDown" />
     </div>
     <div class="resetPauseRotate">
       <div class="buttonSettings">
-        <input type="button" @click="buttonReset" value="R" class="buttonReset" />
-        <input type="button" @click="buttonPause" value="P" class="buttonPause" />
-        <input type="button" @click="buttonSound" value="S" class="buttonSound" />
+        <input type="button" @click="buttonReset()" value="R" class="buttonReset" />
+        <input type="button" @click="buttonPause()" value="P" class="buttonPause" />
+        <input type="button" @click="buttonSound()" value="S" class="buttonSound" />
       </div>
-      <input type="button" @click="buttonRotate" value="↺" class="buttonRotate" />
+      <input type="button" @click="buttonRotate()" value="↺" class="buttonRotate" />
     </div>
   </div>
 </template>
 
 <script>
+import store from "../store/index.js"
+
 export default {
   name: "Control",
   components: {},
   methods: {
     buttonDown() {
-      console.log("Muta piesa cu cate un rand");
+      let diff = {
+       diffLine: 1,
+       diffColumn: 0 
+      }
+      store.commit("movePiece", diff);
     },
     buttonDownFinish() {
       console.log("Muta piesa jos de tot");
     },
     buttonLeft() {
-      console.log("Muta piesa cu o coloana la stanga");
+      let diff = {
+       diffLine: 0,
+       diffColumn: -1 
+      }
+      store.commit("movePiece", diff);
     },
     buttonRight() {
-      console.log("Muta piesa cu o coloana la dreapta");
+      let diff = {
+       diffLine: 0,
+       diffColumn: 1 
+      }
+      store.commit("movePiece", diff);
     },
     buttonReset() {
       console.log("Reset Joc");

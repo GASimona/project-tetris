@@ -26,7 +26,7 @@ export default new Vuex.Store({
       new JPiece(),
       new TPiece(),
     ],
-    nextPieceIndex: 3,
+    nextPieceIndex: 1,
     currentPieceIndex: 0,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
@@ -36,6 +36,9 @@ export default new Vuex.Store({
   mutations: {
     activateNextPiece: (state) => {
         state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex])
+    },
+    movePiece: (state, diff) => {
+      state.tableGame.movePiece(diff.diffLine, diff.diffColumn);
     }
   },
   getters: {
