@@ -42,6 +42,11 @@ export default class TableGame {
             }
         }
     }
+    rotateMatrix() {
+        this.deletePiece();
+        this.piece.rotateMatrix();
+        this.showPiece();
+    }
 
     showPiece() {
         for (let i = 0; i < 4; i++) {

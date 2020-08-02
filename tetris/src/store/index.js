@@ -27,7 +27,7 @@ export default new Vuex.Store({
       new TPiece(),
     ],
     nextPieceIndex: 1,
-    currentPieceIndex: 0,
+    currentPieceIndex: 3,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
     tableGame: new TableGame(numberLine, numberColumn)
@@ -39,6 +39,9 @@ export default new Vuex.Store({
     },
     movePiece: (state, diff) => {
       state.tableGame.movePiece(diff.diffLine, diff.diffColumn);
+    },
+    rotateMatrix: (state) => {
+      state.tableGame.rotateMatrix();
     }
   },
   getters: {
@@ -47,5 +50,5 @@ export default new Vuex.Store({
     numberLineTableGame: (state) => state.numberLineTableGame,
     numberColumnTableGame: (state) => state.numberColumnTableGame,
     tableGame: (state) => state.tableGame
-  },
+  }
 });

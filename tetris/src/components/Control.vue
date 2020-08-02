@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import store from "../store/index.js"
+import store from "../store/index.js";
 
 export default {
   name: "Control",
@@ -28,9 +28,9 @@ export default {
   methods: {
     buttonDown() {
       let diff = {
-       diffLine: 1,
-       diffColumn: 0 
-      }
+        diffLine: 1,
+        diffColumn: 0,
+      };
       store.commit("movePiece", diff);
     },
     buttonDownFinish() {
@@ -38,16 +38,16 @@ export default {
     },
     buttonLeft() {
       let diff = {
-       diffLine: 0,
-       diffColumn: -1 
-      }
+        diffLine: 0,
+        diffColumn: -1,
+      };
       store.commit("movePiece", diff);
     },
     buttonRight() {
       let diff = {
-       diffLine: 0,
-       diffColumn: 1 
-      }
+        diffLine: 0,
+        diffColumn: 1,
+      };
       store.commit("movePiece", diff);
     },
     buttonReset() {
@@ -60,7 +60,7 @@ export default {
       console.log("Play/Stop song");
     },
     buttonRotate() {
-      console.log("Roteste piesa");
+     store.commit("rotateMatrix");
     },
   },
 };
@@ -78,8 +78,8 @@ export default {
   padding-bottom: 1em;
 }
 .moveButtono {
-    position: relative;
-    left: 1em;
+  position: relative;
+  left: 1em;
 }
 .moveButtono,
 .moveButtono div {
