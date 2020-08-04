@@ -18,8 +18,8 @@ let numberColumn = 10;
 export default new Vuex.Store({
   state: {
     pieces: [
-      new SquarePiece(),
       new IPiece(),
+      new SquarePiece(),
       new SPiece(),
       new ZPiece(),
       new LPiece(),
@@ -27,7 +27,7 @@ export default new Vuex.Store({
       new TPiece(),
     ],
     nextPieceIndex: 1,
-    currentPieceIndex: 3,
+    currentPieceIndex: 0,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
     tableGame: new TableGame(numberLine, numberColumn)

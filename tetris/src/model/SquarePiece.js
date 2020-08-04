@@ -9,4 +9,5 @@ export default class SquarePiece extends Piece {
             [0, 0, 0, 0],
         ]) 
     }
+    rotateMatrix() {}
 }
