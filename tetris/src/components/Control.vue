@@ -55,7 +55,17 @@ export default {
       console.log("Reset Joc");
     },
     buttonPlayPause() {
-      // setInterval(store.commit("speedPiece"), 1000);
+      let diff = {
+        diffLine: 1,
+        diffColumn: 0,
+      };
+      setInterval( 
+        () => {
+          store.commit("movePiece", diff)
+        },
+         1000
+      );
+      
     },
     buttonSound() {
       console.log("Play/Stop song");

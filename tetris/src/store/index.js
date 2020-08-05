@@ -30,7 +30,8 @@ export default new Vuex.Store({
       score: 0,
       level: 1,
     },
-
+    
+    speed: 3000,
     nextPieceIndex: Math.floor(Math.random() * 7),
     currentPieceIndex: Math.floor(Math.random() * 7),
     numberLineTableGame: numberLine,
@@ -50,10 +51,7 @@ export default new Vuex.Store({
     },
     rotateMatrix: (state) => {
       state.tableGame.rotateMatrix();
-    },
-    // infoGame: (state, info) => {
-    //   state.tableGame.infoGame(state, info.valueHiScore, info.valueScore, info.valueLevel);
-    // }
+    }
   },
   getters: {
     nextPiece: (state) => state.pieces[state.nextPieceIndex],
@@ -63,6 +61,6 @@ export default new Vuex.Store({
     tableGame: (state) => state.tableGame,
     hiScore: (state) => state.aboutGame.hiScore,
     score: (state) => state.aboutGame.score,
-    level: (state) => state.aboutGame.level
+    level: (state) => state.aboutGame.level,
   },
 });

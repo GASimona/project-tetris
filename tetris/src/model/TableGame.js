@@ -14,18 +14,12 @@ export default class TableGame {
     }
   }
 
-
   setCurrentPiece(piece) {
     this.piece = piece;
     this.positionsLinePieceInTable = 0;
     this.positionsColumnPieceInTable = 3;
     this.showPiece();
   }
-
-//   ----- se apeleaza cand dam play la joc -------
-//   speedPiece(state) {
-//       !this.movePiece(state, 1, 0)
-//   }
 
   rotateMatrix() {
     this.deletePiece();
@@ -47,6 +41,7 @@ export default class TableGame {
     this.deletePiece();
     var x = this.positionsLinePieceInTable + diffLine;
     var y = this.positionsColumnPieceInTable + diffColumn;
+    
     if (this.isThePieceInTable(x, y)) {
       this.positionsLinePieceInTable += diffLine;
       this.positionsColumnPieceInTable += diffColumn;
@@ -109,6 +104,7 @@ export default class TableGame {
   updateLevel(state) {
       state.aboutGame.level = Math.floor(state.aboutGame.score / 10) + 1;
   }
+
   isThePieceInTable(x, y) {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
