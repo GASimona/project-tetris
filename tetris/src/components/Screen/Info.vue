@@ -21,24 +21,21 @@
 
 <script>
 import Table from "./Table.vue";
+import store from "../../store/index.js";
+
 
 export default {
   name: "Info",
   components: {
     Table,
   },
-  data() {
-    let valueHiScore = 10;
-    let valueScore = 2;
-    let valueLevel = 1;
 
-
-    return {
-      hiScoreValue: valueHiScore,
-      scoreValue: valueScore,
-      levelValue: valueLevel,
-    };
+  computed: {
+    hiScoreValue: () => store.getters.hiScore,
+    scoreValue: () => store.getters.score,
+    levelValue: () => store.getters.level
   },
+
 };
 </script>
 
@@ -54,7 +51,9 @@ div,
 p {
   background-color: var(--color-screen);
 }
-.hiScore div, .score div, .level div {
+.hiScore div,
+.score div,
+.level div {
   text-align: right;
 }
 </style>

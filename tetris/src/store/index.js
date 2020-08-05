@@ -14,7 +14,6 @@ Vue.use(Vuex);
 let numberLine = 20;
 let numberColumn = 10;
 
-
 export default new Vuex.Store({
   state: {
     pieces: [
@@ -26,16 +25,22 @@ export default new Vuex.Store({
       new JPiece(),
       new TPiece(),
     ],
+    aboutGame: {
+      hiScore: 2,
+      score: 0,
+      level: 1,
+    },
+
     nextPieceIndex: Math.floor(Math.random() * 7),
-    currentPieceIndex: 4,
+    currentPieceIndex: Math.floor(Math.random() * 7),
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
-    tableGame: new TableGame(numberLine, numberColumn)
+    tableGame: new TableGame(numberLine, numberColumn),
   },
 
   mutations: {
     activateNextPiece: (state) => {
-        state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex])
+      state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex]);
     },
     movePiece: (state, diff) => {
       state.tableGame.movePiece(state, diff.diffLine, diff.diffColumn);
@@ -45,13 +50,19 @@ export default new Vuex.Store({
     },
     rotateMatrix: (state) => {
       state.tableGame.rotateMatrix();
-    }
+    },
+    // infoGame: (state, info) => {
+    //   state.tableGame.infoGame(state, info.valueHiScore, info.valueScore, info.valueLevel);
+    // }
   },
   getters: {
     nextPiece: (state) => state.pieces[state.nextPieceIndex],
     currentPiece: (state) => state.pieces[state.currentPieceIndex],
     numberLineTableGame: (state) => state.numberLineTableGame,
     numberColumnTableGame: (state) => state.numberColumnTableGame,
-    tableGame: (state) => state.tableGame
-  }
+    tableGame: (state) => state.tableGame,
+    hiScore: (state) => state.aboutGame.hiScore,
+    score: (state) => state.aboutGame.score,
+    level: (state) => state.aboutGame.level
+  },
 });

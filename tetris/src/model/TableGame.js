@@ -14,12 +14,18 @@ export default class TableGame {
     }
   }
 
+
   setCurrentPiece(piece) {
     this.piece = piece;
     this.positionsLinePieceInTable = 0;
     this.positionsColumnPieceInTable = 3;
     this.showPiece();
   }
+
+//   ----- se apeleaza cand dam play la joc -------
+//   speedPiece(state) {
+//       !this.movePiece(state, 1, 0)
+//   }
 
   rotateMatrix() {
     this.deletePiece();
@@ -51,7 +57,7 @@ export default class TableGame {
     if(diffLine === 0) {
         return false;
     }
-    this.deleteTheLineCompleted();
+    this.deleteTheLineCompleted(state);
     this.anotherPieceInGame(state);
     return true;
   }
@@ -66,12 +72,13 @@ export default class TableGame {
     this.setCurrentPiece(state.pieces[state.currentPieceIndex]);
   }
 
-  deleteTheLineCompleted() {
+  deleteTheLineCompleted(state) {
     for (var i = this.line - 1; i >= 0; i--) {
             if ( this.isLineCompleted(i) ) {
                 this.lowerTheRows(i);
+                this.updateScore(state);
+                this.updateLevel(state);
                 i += 1;
-    //    ----- De crescut scorul -----------
             }
     }
   }
@@ -93,6 +100,15 @@ export default class TableGame {
     }
   }
 
+  updateScore(state) {
+      state.aboutGame.score += 1;
+      if (state.aboutGame.hiScore < state.aboutGame.score) {
+        state.aboutGame.hiScore = state.aboutGame.score;
+      }
+  }
+  updateLevel(state) {
+      state.aboutGame.level = Math.floor(state.aboutGame.score / 10) + 1;
+  }
   isThePieceInTable(x, y) {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {

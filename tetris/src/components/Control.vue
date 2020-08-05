@@ -12,7 +12,7 @@
     <div class="resetPauseRotate">
       <div class="buttonSettings">
         <input type="button" @click="buttonReset()" value="R" class="buttonReset" />
-        <input type="button" @click="buttonPause()" value="P" class="buttonPause" />
+        <input type="button" @click="buttonPlayPause()" value="P" class="buttonPlayPause" />
         <input type="button" @click="buttonSound()" value="S" class="buttonSound" />
       </div>
       <input type="button" @click="buttonRotate()" value="↺" class="buttonRotate" />
@@ -54,8 +54,8 @@ export default {
     buttonReset() {
       console.log("Reset Joc");
     },
-    buttonPause() {
-      console.log("Pauza/Play Joc");
+    buttonPlayPause() {
+      // setInterval(store.commit("speedPiece"), 1000);
     },
     buttonSound() {
       console.log("Play/Stop song");
@@ -121,7 +121,7 @@ export default {
 }
 
 .buttonReset,
-.buttonPause,
+.buttonPlayPause,
 .buttonSound {
   width: 2em;
   height: 2em;
