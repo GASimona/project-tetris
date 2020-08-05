@@ -3,6 +3,7 @@
     <div class="moveButtono">
       <input type="button" @click="buttonDownFinish()" value="↓↓" class="buttonDownFinish" />
       <div>
+        <!-- v-on:keyup.left="buttonLeft()" -->
         <input type="button" @click="buttonLeft()" value="←" class="buttonLeft" />
         <input type="button" @click="buttonRight()" value="→" class="buttonRight" />
       </div>
@@ -60,9 +61,18 @@ export default {
       console.log("Play/Stop song");
     },
     buttonRotate() {
-     store.commit("rotateMatrix");
+      store.commit("rotateMatrix");
     },
-  },
+  }
+  // mounted() {
+  //   console.log("mounted");
+  //   window.addEventListener(
+  //     "keypress",
+  //     function (e) {
+  //       console.log(String.fromCharCode(e.keyCode));
+  //     }.bind(this)
+  //   );
+  // },
 };
 </script>
 

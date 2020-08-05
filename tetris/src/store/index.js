@@ -27,7 +27,7 @@ export default new Vuex.Store({
       new TPiece(),
     ],
     nextPieceIndex: 1,
-    currentPieceIndex: 0,
+    currentPieceIndex: 4,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
     tableGame: new TableGame(numberLine, numberColumn)

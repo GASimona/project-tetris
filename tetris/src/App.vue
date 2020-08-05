@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <Tetris msg="Welcome to Your Vue.js App"/>
+  <div id="app" >
+    <Tetris msg="Welcome to Your Vue.js App" ></Tetris>
   </div>
 </template>
 

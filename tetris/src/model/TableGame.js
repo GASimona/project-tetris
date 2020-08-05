@@ -21,6 +21,23 @@ export default class TableGame {
     this.showPiece();
   }
 
+  rotateMatrix() {
+    this.deletePiece();
+    this.piece.rotateMatrix();
+
+    if (
+      !this.isThePieceInTable(
+        this.positionsLinePieceInTable,
+        this.positionsColumnPieceInTable
+      )
+    ) {
+      this.piece.rotateMatrix();
+      this.piece.rotateMatrix();
+      this.piece.rotateMatrix();
+    }
+
+    this.showPiece();
+  }
 
   movePiece(diffLine, diffColumn) {
     this.deletePiece();
@@ -39,8 +56,11 @@ export default class TableGame {
   isThePieceInTable(x, y) {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
-        if (!this.isCoordonateInTable(i+x, j+y) && (this.piece.matrix[i][j] == 1) ) {
-            return false;
+        if (
+          !this.isCoordonateInTable(i + x, j + y) &&
+          this.piece.matrix[i][j] == 1
+        ) {
+          return false;
         }
       }
     }
@@ -69,11 +89,6 @@ export default class TableGame {
         }
       }
     }
-  }
-  rotateMatrix() {
-    this.deletePiece();
-    this.piece.rotateMatrix();
-    this.showPiece();
   }
 
   showPiece() {

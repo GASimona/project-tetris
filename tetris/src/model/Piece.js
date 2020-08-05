@@ -10,9 +10,10 @@ export default class Piece {
         rotateMatrix[i][j] = this.matrix[2 - j][i];
       }
     }
-    this.matrix = rotateMatrix;
-    console.log(this.matrix);
 
+    this.matrix = rotateMatrix;
+
+    
     this.matrix.push([]);
     let i = 3;
     for (let j = 0; j <= 3; j++) {
@@ -20,6 +21,5 @@ export default class Piece {
       this.matrix[j][i] = 0;
     }
 
-    console.log(this.matrix);
   }
 }
