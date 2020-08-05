@@ -14,8 +14,6 @@ export default class TableGame {
     }
   }
 
-
-
   setCurrentPiece(piece) {
     this.piece = piece;
     this.positionsLinePieceInTable = 0;
@@ -26,7 +24,6 @@ export default class TableGame {
   rotateMatrix() {
     this.deletePiece();
     this.piece.rotateMatrix();
-
     if (
       !this.isThePieceInTable(
         this.positionsLinePieceInTable,
@@ -37,16 +34,13 @@ export default class TableGame {
       this.piece.rotateMatrix();
       this.piece.rotateMatrix();
     }
-
     this.showPiece();
   }
 
   movePiece(state, diffLine, diffColumn) {
     this.deletePiece();
-
     var x = this.positionsLinePieceInTable + diffLine;
     var y = this.positionsColumnPieceInTable + diffColumn;
-
     if (this.isThePieceInTable(x, y)) {
       this.positionsLinePieceInTable += diffLine;
       this.positionsColumnPieceInTable += diffColumn;
@@ -54,19 +48,49 @@ export default class TableGame {
       return false;
     }
     this.showPiece();
-
     if(diffLine === 0) {
         return false;
     }
-
-    state.currentPieceIndex = state.nextPieceIndex;
-    state.nextPieceIndex = Math.floor(Math.random() * 7);
-    this.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+    this.deleteTheLineCompleted();
+    this.anotherPieceInGame(state);
     return true;
   }
 
   teleportDown(state) {
      while (!this.movePiece(state, 1, 0));
+  }
+
+  anotherPieceInGame(state) {
+    state.currentPieceIndex = state.nextPieceIndex;
+    state.nextPieceIndex = Math.floor(Math.random() * 7);
+    this.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+  }
+
+  deleteTheLineCompleted() {
+    for (var i = this.line - 1; i >= 0; i--) {
+            if ( this.isLineCompleted(i) ) {
+                this.lowerTheRows(i);
+                i += 1;
+    //    ----- De crescut scorul -----------
+            }
+    }
+  }
+
+  isLineCompleted(lineIndex) {
+    for ( var i = 0; i < this.column; i++) {
+        if (this.matrix[lineIndex][i] == 0) {
+            return false;
+        }
+    }
+    return true;
+  }
+
+  lowerTheRows(i) {
+    for (var x = i-1; x >= 0; x--) {
+        for (var y = 0; y < this.column; y++) {
+            this.matrix[x+1][y] = this.matrix[x][y];
+        }
+    }
   }
 
   isThePieceInTable(x, y) {
