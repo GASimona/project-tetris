@@ -26,7 +26,7 @@ export default new Vuex.Store({
       new JPiece(),
       new TPiece(),
     ],
-    nextPieceIndex: 1,
+    nextPieceIndex: Math.floor(Math.random() * 7),
     currentPieceIndex: 4,
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
@@ -38,7 +38,10 @@ export default new Vuex.Store({
         state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex])
     },
     movePiece: (state, diff) => {
-      state.tableGame.movePiece(diff.diffLine, diff.diffColumn);
+      state.tableGame.movePiece(state, diff.diffLine, diff.diffColumn);
+    },
+    teleportDown: (state) => {
+      state.tableGame.teleportDown(state);
     },
     rotateMatrix: (state) => {
       state.tableGame.rotateMatrix();

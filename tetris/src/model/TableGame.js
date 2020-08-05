@@ -14,6 +14,8 @@ export default class TableGame {
     }
   }
 
+
+
   setCurrentPiece(piece) {
     this.piece = piece;
     this.positionsLinePieceInTable = 0;
@@ -39,7 +41,7 @@ export default class TableGame {
     this.showPiece();
   }
 
-  movePiece(diffLine, diffColumn) {
+  movePiece(state, diffLine, diffColumn) {
     this.deletePiece();
 
     var x = this.positionsLinePieceInTable + diffLine;
@@ -48,16 +50,30 @@ export default class TableGame {
     if (this.isThePieceInTable(x, y)) {
       this.positionsLinePieceInTable += diffLine;
       this.positionsColumnPieceInTable += diffColumn;
+      this.showPiece();
+      return false;
+    }
+    this.showPiece();
+
+    if(diffLine === 0) {
+        return false;
     }
 
-    this.showPiece();
+    state.currentPieceIndex = state.nextPieceIndex;
+    state.nextPieceIndex = Math.floor(Math.random() * 7);
+    this.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+    return true;
+  }
+
+  teleportDown(state) {
+     while (!this.movePiece(state, 1, 0));
   }
 
   isThePieceInTable(x, y) {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
         if (
-          !this.isCoordonateInTable(i + x, j + y) &&
+          (!this.isCoordonateInTable(i + x, j + y) || this.matrix[i + x][j + y] ) &&
           this.piece.matrix[i][j] == 1
         ) {
           return false;

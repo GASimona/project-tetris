@@ -1,7 +1,7 @@
 <template>
   <div class="control">
     <div class="moveButtono">
-      <input type="button" @click="buttonDownFinish()" value="↓↓" class="buttonDownFinish" />
+      <input type="button" @click="buttonTeleportDown()" value="↓↓" class="buttonTeleportDown" />
       <div>
         <!-- v-on:keyup.left="buttonLeft()" -->
         <input type="button" @click="buttonLeft()" value="←" class="buttonLeft" />
@@ -34,8 +34,8 @@ export default {
       };
       store.commit("movePiece", diff);
     },
-    buttonDownFinish() {
-      console.log("Muta piesa jos de tot");
+    buttonTeleportDown() {
+      store.commit("teleportDown");
     },
     buttonLeft() {
       let diff = {
@@ -98,7 +98,7 @@ export default {
 .buttonLeft,
 .buttonRight,
 .buttonDown,
-.buttonDownFinish {
+.buttonTeleportDown {
   width: 3em;
   height: 3em;
   border-radius: 50%;
@@ -115,7 +115,7 @@ export default {
   left: -2em;
 }
 .buttonDown,
-.buttonDownFinish {
+.buttonTeleportDown {
   position: relative;
   left: 1em;
 }
