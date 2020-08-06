@@ -32,7 +32,8 @@ export default new Vuex.Store({
     },
     isStarted: false,
     speed: 1000,
-    
+    intervalId: null,
+
     nextPieceIndex: Math.floor(Math.random() * 7),
     currentPieceIndex: Math.floor(Math.random() * 7),
     numberLineTableGame: numberLine,
@@ -60,6 +61,9 @@ export default new Vuex.Store({
         state.isStarted = false;
       }
     },
+    setInterval: (state, intervalId) => {
+      state.intervalId = intervalId;
+    }
   },
   getters: {
     nextPiece: (state) => state.pieces[state.nextPieceIndex],
@@ -72,5 +76,6 @@ export default new Vuex.Store({
     level: (state) => state.aboutGame.level,
     isStarted: (state) => state.isStarted,
     speed: (state) => state.speed,
+    intervalId: (state) => state.intervalId
   },
 });

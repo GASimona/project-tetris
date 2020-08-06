@@ -90,13 +90,17 @@ export default {
         diffColumn: 0,
       };
       if (!store.getters.isStarted) {
-        this.intervalId = setInterval(() => {
+        let intervalId = setInterval(() => {
           store.commit("movePiece", diff);
         }, store.getters.speed);
+        store.commit("setInterval", intervalId);
+        console.log("start"+intervalId)
         store.commit("toggleStarted");
       } else {
-        clearInterval(this.intervalId);
+        clearInterval(store.getters.intervalId);
         store.commit("toggleStarted");
+        store.commit("setInterval", null);
+        console.log("dupa stergere"+store.getters.intervalId)
       }
     },
     buttonReset() {

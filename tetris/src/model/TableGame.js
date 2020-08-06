@@ -41,7 +41,7 @@ export default class TableGame {
     this.deletePiece();
     var x = this.positionsLinePieceInTable + diffLine;
     var y = this.positionsColumnPieceInTable + diffColumn;
-    
+
     if (this.isThePieceInTable(x, y)) {
       this.positionsLinePieceInTable += diffLine;
       this.positionsColumnPieceInTable += diffColumn;
@@ -49,8 +49,8 @@ export default class TableGame {
       return false;
     }
     this.showPiece();
-    if(diffLine === 0) {
-        return false;
+    if (diffLine === 0) {
+      return false;
     }
     this.deleteTheLineCompleted(state);
     this.anotherPieceInGame(state);
@@ -58,7 +58,7 @@ export default class TableGame {
   }
 
   teleportDown(state) {
-     while (!this.movePiece(state, 1, 0));
+    while (!this.movePiece(state, 1, 0));
   }
 
   anotherPieceInGame(state) {
@@ -69,49 +69,53 @@ export default class TableGame {
 
   deleteTheLineCompleted(state) {
     for (var i = this.line - 1; i >= 0; i--) {
-            if ( this.isLineCompleted(i) ) {
-                this.lowerTheRows(i);
-                this.updateScore(state);
-                this.updateLevel(state);
-                i += 1;
-            }
+      if (this.isLineCompleted(i)) {
+        this.lowerTheRows(i);
+        this.updateScore(state);
+        this.updateLevel(state);
+        i += 1;
+      }
     }
   }
 
   isLineCompleted(lineIndex) {
-    for ( var i = 0; i < this.column; i++) {
-        if (this.matrix[lineIndex][i] == 0) {
-            return false;
-        }
+    for (var i = 0; i < this.column; i++) {
+      if (this.matrix[lineIndex][i] == 0) {
+        return false;
+      }
     }
     return true;
   }
 
   lowerTheRows(i) {
-    for (var x = i-1; x >= 0; x--) {
-        for (var y = 0; y < this.column; y++) {
-            this.matrix[x+1][y] = this.matrix[x][y];
-        }
+    for (var x = i - 1; x >= 0; x--) {
+      for (var y = 0; y < this.column; y++) {
+        this.matrix[x + 1][y] = this.matrix[x][y];
+      }
     }
   }
-  
+
   updateScore(state) {
-      state.aboutGame.score += 1;
-      if (state.aboutGame.hiScore < state.aboutGame.score) {
-        state.aboutGame.hiScore = state.aboutGame.score;
-      }
+    state.aboutGame.score += 1;
+    if (state.aboutGame.hiScore < state.aboutGame.score) {
+      state.aboutGame.hiScore = state.aboutGame.score;
+    }
   }
   updateLevel(state) {
-      state.aboutGame.level = Math.floor(state.aboutGame.score / 1) + 1;
-      state.speed = (80 * state.speed) / 100;
-      console.log(state.speed);
+    state.aboutGame.level = Math.floor(state.aboutGame.score / 10) + 1;
+    console.log(state.speed);
+    clearInterval(state.intervalId);
+    state.speed = (80 * state.speed) / 100;
+    state.intervalId = setInterval( () => { this.movePiece(state, 1, 0) }, state.speed );
+    console.log('creste viteza'+ state.intervalId)
   }
 
   isThePieceInTable(x, y) {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
         if (
-          (!this.isCoordonateInTable(i + x, j + y) || this.matrix[i + x][j + y] ) &&
+          (!this.isCoordonateInTable(i + x, j + y) ||
+            this.matrix[i + x][j + y]) &&
           this.piece.matrix[i][j] == 1
         ) {
           return false;
