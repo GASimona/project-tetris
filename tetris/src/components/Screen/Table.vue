@@ -10,10 +10,8 @@
         }"
         ></td>
       </tr>
-    <tr style="display: none">Here it is {{tableGame}}</tr>
-
+      <tr style="display: none">Here it is {{tableGame}}</tr>
     </table>
-  
 </template>
 
 <script>
@@ -47,8 +45,8 @@ export default {
     },
     tableGame: function () {
       return store.getters.tableGame;
-    }
-  }
+    },
+  },
 };
 </script>
 

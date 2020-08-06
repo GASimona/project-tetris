@@ -90,15 +90,13 @@ export default {
         diffColumn: 0,
       };
       if (!store.getters.isStarted) {
-        var intervalId = setInterval(() => {
+        this.intervalId = setInterval(() => {
           store.commit("movePiece", diff);
         }, store.getters.speed);
         store.commit("toggleStarted");
-        console.log("este pornitr");
       } else {
-        clearInterval(intervalId);
+        clearInterval(this.intervalId);
         store.commit("toggleStarted");
-        console.log("s-a oprit");
       }
     },
     buttonReset() {

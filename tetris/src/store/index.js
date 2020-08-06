@@ -32,6 +32,7 @@ export default new Vuex.Store({
     },
     isStarted: false,
     speed: 1000,
+    
     nextPieceIndex: Math.floor(Math.random() * 7),
     currentPieceIndex: Math.floor(Math.random() * 7),
     numberLineTableGame: numberLine,

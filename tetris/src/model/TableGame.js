@@ -95,7 +95,6 @@ export default class TableGame {
     }
   }
   
-
   updateScore(state) {
       state.aboutGame.score += 1;
       if (state.aboutGame.hiScore < state.aboutGame.score) {
@@ -103,8 +102,9 @@ export default class TableGame {
       }
   }
   updateLevel(state) {
-      state.aboutGame.level = Math.floor(state.aboutGame.score / 2) + 1;
-      
+      state.aboutGame.level = Math.floor(state.aboutGame.score / 1) + 1;
+      state.speed = (80 * state.speed) / 100;
+      console.log(state.speed);
   }
 
   isThePieceInTable(x, y) {
