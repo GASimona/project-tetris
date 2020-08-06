@@ -94,6 +94,7 @@ export default class TableGame {
         }
     }
   }
+  
 
   updateScore(state) {
       state.aboutGame.score += 1;
@@ -102,7 +103,8 @@ export default class TableGame {
       }
   }
   updateLevel(state) {
-      state.aboutGame.level = Math.floor(state.aboutGame.score / 10) + 1;
+      state.aboutGame.level = Math.floor(state.aboutGame.score / 2) + 1;
+      
   }
 
   isThePieceInTable(x, y) {

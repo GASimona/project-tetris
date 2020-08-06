@@ -1,21 +1,51 @@
 <template>
   <div class="control">
     <div class="moveButtono">
-      <input type="button" @click="buttonTeleportDown()" value="↓↓" class="buttonTeleportDown" />
+      <input
+        type="button"
+        @click="buttonTeleportDown()"
+        value="↓↓"
+        class="buttonTeleportDown"
+        v-bind:disabled="!isTheButtonEnabled"
+      />
       <div>
         <!-- v-on:keyup.left="buttonLeft()" -->
-        <input type="button" @click="buttonLeft()" value="←" class="buttonLeft" />
-        <input type="button" @click="buttonRight()" value="→" class="buttonRight" />
+        <input
+          type="button"
+          @click="buttonLeft()"
+          value="←"
+          class="buttonLeft"
+          v-bind:disabled="!isTheButtonEnabled"
+        />
+        <input
+          type="button"
+          @click="buttonRight()"
+          value="→"
+          class="buttonRight"
+          v-bind:disabled="!isTheButtonEnabled"
+        />
       </div>
-      <input type="button" @click="buttonDown()" value="↓" class="buttonDown" />
+      <input
+        type="button"
+        @click="buttonDown()"
+        value="↓"
+        class="buttonDown"
+        v-bind:disabled="!isTheButtonEnabled"
+      />
     </div>
     <div class="resetPauseRotate">
       <div class="buttonSettings">
-        <input type="button" @click="buttonReset()" value="R" class="buttonReset" />
         <input type="button" @click="buttonPlayPause()" value="P" class="buttonPlayPause" />
+        <input type="button" @click="buttonReset()" value="R" class="buttonReset" />
         <input type="button" @click="buttonSound()" value="S" class="buttonSound" />
       </div>
-      <input type="button" @click="buttonRotate()" value="↺" class="buttonRotate" />
+      <input
+        type="button"
+        @click="buttonRotate()"
+        value="↺"
+        class="buttonRotate"
+        v-bind:disabled="!isTheButtonEnabled"
+      />
     </div>
   </div>
 </template>
@@ -26,6 +56,9 @@ import store from "../store/index.js";
 export default {
   name: "Control",
   components: {},
+  computed: {
+    isTheButtonEnabled: () => store.getters.isStarted,
+  },
   methods: {
     buttonDown() {
       let diff = {
@@ -51,21 +84,25 @@ export default {
       };
       store.commit("movePiece", diff);
     },
-    buttonReset() {
-      console.log("Reset Joc");
-    },
     buttonPlayPause() {
       let diff = {
         diffLine: 1,
         diffColumn: 0,
       };
-      setInterval( 
-        () => {
-          store.commit("movePiece", diff)
-        },
-         1000
-      );
-      
+      if (!store.getters.isStarted) {
+        var intervalId = setInterval(() => {
+          store.commit("movePiece", diff);
+        }, store.getters.speed);
+        store.commit("toggleStarted");
+        console.log("este pornitr");
+      } else {
+        clearInterval(intervalId);
+        store.commit("toggleStarted");
+        console.log("s-a oprit");
+      }
+    },
+    buttonReset() {
+      console.log("Reset Joc");
     },
     buttonSound() {
       console.log("Play/Stop song");
@@ -73,7 +110,7 @@ export default {
     buttonRotate() {
       store.commit("rotateMatrix");
     },
-  }
+  },
   // mounted() {
   //   console.log("mounted");
   //   window.addEventListener(
@@ -113,6 +150,7 @@ export default {
   height: 3em;
   border-radius: 50%;
   background-color: var(--bg-big-buttons);
+  color: black;
 }
 
 .buttonLeft {
@@ -151,6 +189,7 @@ export default {
   left: 2em;
   top: -0.5em;
   background-color: var(--bg-big-buttons);
+  color: black;
 }
 
 .resetPauseRotate,
