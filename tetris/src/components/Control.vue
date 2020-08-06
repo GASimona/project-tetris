@@ -94,17 +94,15 @@ export default {
           store.commit("movePiece", diff);
         }, store.getters.speed);
         store.commit("setInterval", intervalId);
-        console.log("start"+intervalId)
         store.commit("toggleStarted");
       } else {
         clearInterval(store.getters.intervalId);
         store.commit("toggleStarted");
         store.commit("setInterval", null);
-        console.log("dupa stergere"+store.getters.intervalId)
       }
     },
     buttonReset() {
-      console.log("Reset Joc");
+      store.commit("reset");
     },
     buttonSound() {
       console.log("Play/Stop song");

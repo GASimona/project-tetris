@@ -102,12 +102,15 @@ export default class TableGame {
     }
   }
   updateLevel(state) {
-    state.aboutGame.level = Math.floor(state.aboutGame.score / 10) + 1;
-    console.log(state.speed);
-    clearInterval(state.intervalId);
-    state.speed = (80 * state.speed) / 100;
-    state.intervalId = setInterval( () => { this.movePiece(state, 1, 0) }, state.speed );
-    console.log('creste viteza'+ state.intervalId)
+    var oldLevel = state.aboutGame.level;
+    state.aboutGame.level = Math.floor(state.aboutGame.score / 2) + 1;
+    if (state.aboutGame.level != oldLevel) {
+      clearInterval(state.intervalId);
+      state.speed = (80 * state.speed) / 100;
+      state.intervalId = setInterval(() => {
+        this.movePiece(state, 1, 0);
+      }, state.speed);
+    }
   }
 
   isThePieceInTable(x, y) {
@@ -157,6 +160,14 @@ export default class TableGame {
             this.positionsColumnPieceInTable + j
           ] = this.piece.matrix[i][j];
         }
+      }
+    }
+  }
+
+  cleanTheTable(state) {
+    for (var i = 0; i < state.numberLineTableGame; i++) {
+      for (var j = 0; j < state.numberColumnTableGame; j++) {
+        this.matrix[i][j] = 0;
       }
     }
   }

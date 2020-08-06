@@ -63,6 +63,22 @@ export default new Vuex.Store({
     },
     setInterval: (state, intervalId) => {
       state.intervalId = intervalId;
+    },
+    reset: (state) => {
+      state.tableGame.cleanTheTable(state);
+      if ( state.isStarted ) {
+        state.isStarted = false;
+        clearInterval(state.intervalId);
+        state.intervalId = null;
+      }
+      state.speed = 1000;
+      state.aboutGame.score = 0;
+      state.aboutGame.level = 1;
+
+      state.nextPieceIndex= Math.floor(Math.random() * 7);
+      state.currentPieceIndex= Math.floor(Math.random() * 7);
+      state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+
     }
   },
   getters: {
