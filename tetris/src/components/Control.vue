@@ -151,6 +151,8 @@ export default {
   border-radius: 50%;
   background-color: var(--bg-big-buttons);
   color: black;
+  outline: none;
+  cursor: pointer;
 }
 
 .buttonLeft {
@@ -178,6 +180,8 @@ export default {
   background-color: var(--bg-small-buttons);
   position: relative;
   top: -1.25em;
+  outline: none;
+  cursor: pointer;
 }
 .buttonRotate {
   width: 2em;
@@ -190,6 +194,8 @@ export default {
   top: -0.5em;
   background-color: var(--bg-big-buttons);
   color: black;
+  outline: none;
+  cursor: pointer;
 }
 
 .resetPauseRotate,
