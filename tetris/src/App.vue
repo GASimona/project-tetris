@@ -30,6 +30,7 @@ export default {
 }
 
 * {
-  background-color: var(--bg-main-page);
+  /* background-color: var(--bg-main-page); */
 }
 </style>
+

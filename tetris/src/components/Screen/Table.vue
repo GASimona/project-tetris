@@ -53,21 +53,21 @@ export default {
 <style scoped>
 table {
   position: relative;
-  padding: 5px;
+  padding: 0.5em;
   margin: auto;
   background-color: var(--bg-table);
   border: 1px solid black;
 }
 td {
-  width: 0.5rem;
-  height: 0.5rem;
-  border: 3px solid var(--border-table);
+  width: 2px;
+  height: 2px;
+  border: 0.25em solid var(--border-table);
   padding: 2px;
   background-color: var(--bg-table);
 }
 td::after {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.5em;
+  height: 0.5em;
   content: "";
   background-color: var(--border-table);
   display: block;
@@ -78,4 +78,5 @@ td.active {
 td.active::after {
   background-color: var(--piece-color);
 }
+
 </style>

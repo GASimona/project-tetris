@@ -1,5 +1,9 @@
 <template>
   <div class="details">
+    <div>
+      <p>NEXT</p>
+      <Table lineD="4" columnD="4" tableInfo="true"></Table>
+    </div>
     <div class="score">
       <p>SCORE</p>
       <div>{{ scoreValue }}</div>
@@ -12,17 +16,12 @@
       <p>LEVEL</p>
       <div>{{ levelValue }}</div>
     </div>
-    <div>
-      <p>NEXT</p>
-      <Table lineD="4" columnD="4" tableInfo="true"></Table>
-    </div>
   </div>
 </template>
 
 <script>
 import Table from "./Table.vue";
 import store from "../../store/index.js";
-
 
 export default {
   name: "Info",
@@ -33,14 +32,14 @@ export default {
   computed: {
     hiScoreValue: () => store.getters.hiScore,
     scoreValue: () => store.getters.score,
-    levelValue: () => store.getters.level
+    levelValue: () => store.getters.level,
   },
-
 };
 </script>
 
 <style scoped>
 .details {
+  width: 10vw;
   padding-left: 1em;
   padding-right: 1em;
   background-color: var(--color-screen);
@@ -55,5 +54,15 @@ p {
 .score div,
 .level div {
   text-align: right;
+}
+
+@media only screen and (max-width: 1000px) {
+  Table {
+    position: relative;
+    left: -30px;
+  }
+  .details {
+    width: 65px;
+  }
 }
 </style>

@@ -41,6 +41,7 @@ h1 {
   border-bottom: 0;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
+  /* width: 50vw; */
 } 
 .content {
   display: flex;

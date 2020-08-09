@@ -133,6 +133,7 @@ export default {
 
 <style scoped>
 .control {
+  /* width: 50vw; */
   display: flex;
   justify-content: center;
   background-color: var(--bg-frame);
