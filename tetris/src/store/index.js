@@ -43,7 +43,7 @@ export default new Vuex.Store({
 
   mutations: {
     activateNextPiece: (state) => {
-      state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+      state.tableGame.setCurrentPiece(state, state.pieces[state.currentPieceIndex]);
     },
     movePiece: (state, diff) => {
       state.tableGame.movePiece(state, diff.diffLine, diff.diffColumn);
@@ -77,8 +77,7 @@ export default new Vuex.Store({
 
       state.nextPieceIndex= Math.floor(Math.random() * 7);
       state.currentPieceIndex= Math.floor(Math.random() * 7);
-      state.tableGame.setCurrentPiece(state.pieces[state.currentPieceIndex]);
-
+      state.tableGame.setCurrentPiece(state, state.pieces[state.currentPieceIndex]);
     }
   },
   getters: {

@@ -14,11 +14,57 @@ export default class TableGame {
     }
   }
 
-  setCurrentPiece(piece) {
+  setCurrentPiece(state, piece) {
+    if (this.isGameOver()) {
+      this.gameOver(state);
+      return;
+    }
     this.piece = piece;
     this.positionsLinePieceInTable = 0;
     this.positionsColumnPieceInTable = 3;
     this.showPiece();
+  }
+
+  isGameOver() {
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < this.column; j++) {
+        if (this.matrix[i][j] == 1) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  gameOver(state) {
+    if (state.isStarted) {
+      state.isStarted = false;
+      clearInterval(state.intervalId);
+      state.intervalId = null;
+    }
+
+    this.matrix = [
+      [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+      [1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+      [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+      [1, 0, 0, 1, 0, 0, 1, 0, 1, 0],
+      [1, 1, 1, 1, 0, 0, 1, 0, 1, 0],
+      [1, 0, 0, 1, 0, 0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 1, 0, 1, 1, 1, 1],
+      [1, 1, 0, 1, 1, 0, 1, 0, 0, 0],
+      [1, 0, 1, 0, 1, 0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+      [1, 1, 1, 0, 0, 0, 1, 0, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+      [1, 1, 1, 1, 0, 0, 1, 0, 0, 1],
+    ];
   }
 
   rotateMatrix() {
@@ -64,7 +110,7 @@ export default class TableGame {
   anotherPieceInGame(state) {
     state.currentPieceIndex = state.nextPieceIndex;
     state.nextPieceIndex = Math.floor(Math.random() * 7);
-    this.setCurrentPiece(state.pieces[state.currentPieceIndex]);
+    this.setCurrentPiece(state, state.pieces[state.currentPieceIndex]);
   }
 
   deleteTheLineCompleted(state) {
