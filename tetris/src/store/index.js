@@ -8,6 +8,7 @@ import LPiece from "../model/LPiece";
 import JPiece from "../model/JPiece";
 import TPiece from "../model/TPiece";
 import TableGame from "../model/TableGame";
+import Sound from "../model/Sound";
 
 Vue.use(Vuex);
 
@@ -39,6 +40,7 @@ export default new Vuex.Store({
     numberLineTableGame: numberLine,
     numberColumnTableGame: numberColumn,
     tableGame: new TableGame(numberLine, numberColumn),
+    sound: new Sound(),
   },
 
   mutations: {
@@ -78,6 +80,14 @@ export default new Vuex.Store({
       state.nextPieceIndex= Math.floor(Math.random() * 7);
       state.currentPieceIndex= Math.floor(Math.random() * 7);
       state.tableGame.setCurrentPiece(state, state.pieces[state.currentPieceIndex]);
+
+      state.sound.playBackground();
+    },
+    toggleSound: (state) => {
+      state.sound.toggleSound();
+    },
+    playbutton: (state) => {
+      state.sound.playClickButoon();
     }
   },
   getters: {

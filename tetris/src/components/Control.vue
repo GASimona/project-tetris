@@ -65,10 +65,12 @@ export default {
         diffLine: 1,
         diffColumn: 0,
       };
-      store.commit("movePiece", diff);
+      store.commit("movePiece", diff)
+      store.commit("playbutton");
     },
     buttonTeleportDown() {
       store.commit("teleportDown");
+      store.commit("playbutton");
     },
     buttonLeft() {
       let diff = {
@@ -76,6 +78,7 @@ export default {
         diffColumn: -1,
       };
       store.commit("movePiece", diff);
+      store.commit("playbutton");
     },
     buttonRight() {
       let diff = {
@@ -83,6 +86,7 @@ export default {
         diffColumn: 1,
       };
       store.commit("movePiece", diff);
+      store.commit("playbutton");
     },
     buttonPlayPause() {
       let diff = {
@@ -100,15 +104,19 @@ export default {
         store.commit("toggleStarted");
         store.commit("setInterval", null);
       }
+      store.commit("playbutton");
     },
     buttonReset() {
       store.commit("reset");
+      store.commit("playbutton");
     },
     buttonSound() {
-      console.log("Play/Stop song");
+      store.commit("toggleSound");
+      store.commit("playbutton");
     },
     buttonRotate() {
       store.commit("rotateMatrix");
+      store.commit("playbutton");
     },
   },
   // mounted() {

@@ -1,3 +1,4 @@
+
 export default class TableGame {
   constructor(line, column) {
     this.line = line;
@@ -42,6 +43,8 @@ export default class TableGame {
       clearInterval(state.intervalId);
       state.intervalId = null;
     }
+
+    state.sound.playGameOver();
 
     this.matrix = [
       [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
@@ -114,13 +117,18 @@ export default class TableGame {
   }
 
   deleteTheLineCompleted(state) {
+    var lineComplite = 0;
     for (var i = this.line - 1; i >= 0; i--) {
       if (this.isLineCompleted(i)) {
         this.lowerTheRows(i);
         this.updateScore(state);
         this.updateLevel(state);
         i += 1;
+        lineComplite += 1;
       }
+    }
+    if (lineComplite != 0 ) {
+      state.sound.playDeleteLine();
     }
   }
 
