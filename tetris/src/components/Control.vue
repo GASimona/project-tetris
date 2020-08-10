@@ -3,23 +3,22 @@
     <div class="moveButtono">
       <input
         type="button"
-        @click="buttonTeleportDown()"
+        v-on:click="buttonTeleportDown()"
         value="↓↓"
         class="buttonTeleportDown"
         v-bind:disabled="!isTheButtonEnabled"
       />
       <div>
-        <!-- v-on:keyup.left="buttonLeft()" -->
         <input
           type="button"
-          @click="buttonLeft()"
+          v-on:click="buttonLeft()"
           value="←"
           class="buttonLeft"
           v-bind:disabled="!isTheButtonEnabled"
         />
         <input
           type="button"
-          @click="buttonRight()"
+          v-on:click="buttonRight()"
           value="→"
           class="buttonRight"
           v-bind:disabled="!isTheButtonEnabled"
@@ -27,21 +26,21 @@
       </div>
       <input
         type="button"
-        @click="buttonDown()"
+        v-on:click="buttonDown()"
         value="↓"
         class="buttonDown"
         v-bind:disabled="!isTheButtonEnabled"
       />
     </div>
-    <div class="resetPauseRotate">
+    <div class="resetPauseSoundRotate">
       <div class="buttonSettings">
-        <input type="button" @click="buttonPlayPause()" value="P" class="buttonPlayPause" />
-        <input type="button" @click="buttonReset()" value="R" class="buttonReset" />
-        <input type="button" @click="buttonSound()" value="S" class="buttonSound" />
+        <input type="button" v-on:click="buttonPlayPause()" value="P" class="buttonPlayPause" />
+        <input type="button" v-on:click="buttonReset()" value="R" class="buttonReset" />
+        <input type="button" v-on:click="buttonSound()" value="S" class="buttonSound" />
       </div>
       <input
         type="button"
-        @click="buttonRotate()"
+        v-on:click="buttonRotate()"
         value="↺"
         class="buttonRotate"
         v-bind:disabled="!isTheButtonEnabled"
@@ -65,7 +64,7 @@ export default {
         diffLine: 1,
         diffColumn: 0,
       };
-      store.commit("movePiece", diff)
+      store.commit("movePiece", diff);
       store.commit("playbutton");
     },
     buttonTeleportDown() {
@@ -119,21 +118,11 @@ export default {
       store.commit("playbutton");
     },
   },
-  // mounted() {
-  //   console.log("mounted");
-  //   window.addEventListener(
-  //     "keypress",
-  //     function (e) {
-  //       console.log(String.fromCharCode(e.keyCode));
-  //     }.bind(this)
-  //   );
-  // },
 };
 </script>
 
 <style scoped>
 .control {
-  /* width: 50vw; */
   display: flex;
   justify-content: center;
   background-color: var(--bg-frame);
@@ -207,9 +196,24 @@ export default {
   cursor: pointer;
 }
 
-.resetPauseRotate,
-.resetPauseRotate .buttonSettings {
+.resetPauseSoundRotate,
+.resetPauseSoundRotate .buttonSettings {
   margin-left: 1em;
   background-color: var(--bg-frame);
+}
+
+@media only screen and (max-width: 500px) {
+  .control {
+    border-radius: 0;
+  }
+  .moveButtono,
+  .resetPauseSoundRotate {
+    position: relative;
+    top: -15px;
+  }
+  .buttonSettings {
+    position: relative;
+    left: 30px;
+  }
 }
 </style>

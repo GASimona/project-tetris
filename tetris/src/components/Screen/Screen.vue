@@ -1,6 +1,6 @@
 <template>
   <div class="borderDesignScreen">
-    <h1> - - - TETRIS - - - </h1>
+    <h1>- - - TETRIS - - -</h1>
     <div class="content">
       <Display></Display>
       <Info></Info>
@@ -42,9 +42,19 @@ h1 {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
   /* width: 50vw; */
-} 
+}
 .content {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    display: none;
+  }
+  .borderDesignScreen {
+    border-radius: 0;
+    padding-top: 0;
+  }
 }
 </style>

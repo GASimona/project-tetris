@@ -1,21 +1,26 @@
 <template>
-  <div id="app" >
-    <Tetris msg="Welcome to Your Vue.js App" ></Tetris>
+  <div id="app">
+    <Tetris msg="Welcome to Your Vue.js App"></Tetris>
   </div>
 </template>
 
 <script>
-import Tetris from './components/Tetris.vue'
+import Tetris from "./components/Tetris.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Tetris
-  }
-}
+    Tetris,
+  },
+  
+};
 </script>
 
 <style>
+* {
+  touch-action: manipulation;
+}
+
 #app {
   --bg-main-page: rgb(224, 211, 195);
   --bg-frame: rgb(230, 226, 18);
@@ -26,11 +31,6 @@ export default {
   --bg-table: rgb(196, 196, 196);
   --border-table: rgb(160, 160, 160);
   --piece-color: black;
-  
-}
-
-* {
-  /* background-color: var(--bg-main-page); */
 }
 </style>
 

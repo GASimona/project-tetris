@@ -39,7 +39,6 @@ export default {
 
 <style scoped>
 .details {
-  width: 10vw;
   padding-left: 1em;
   padding-right: 1em;
   background-color: var(--color-screen);
@@ -63,6 +62,11 @@ p {
   }
   .details {
     width: 65px;
+  }
+  .hiScore {
+    width: 80px;
+    position: relative;
+    left: -15px;
   }
 }
 </style>
