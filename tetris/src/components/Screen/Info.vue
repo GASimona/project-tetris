@@ -1,19 +1,23 @@
 <template>
   <div class="details">
     <div>
-      <p>NEXT</p>
+      <p>Next</p>
       <Table lineD="4" columnD="4" tableInfo="true"></Table>
     </div>
     <div class="score">
-      <p>SCORE</p>
+      <p>Score</p>
       <div>{{ scoreValue }}</div>
     </div>
     <div class="hiScore">
-      <p>HI-SCORE</p>
+      <p>Hi-Score</p>
       <div>{{ hiScoreValue }}</div>
     </div>
+    <div class="cleans">
+      <p>Cleans</p>
+      <div>{{ cleansValue }}</div>
+    </div>
     <div class="level">
-      <p>LEVEL</p>
+      <p>Level</p>
       <div>{{ levelValue }}</div>
     </div>
   </div>
@@ -33,6 +37,7 @@ export default {
     hiScoreValue: () => store.getters.hiScore,
     scoreValue: () => store.getters.score,
     levelValue: () => store.getters.level,
+    cleansValue: () => store.getters.cleans,
   },
 };
 </script>
@@ -51,7 +56,8 @@ p {
 }
 .hiScore div,
 .score div,
-.level div {
+.level div,
+.cleans div {
   text-align: right;
 }
 

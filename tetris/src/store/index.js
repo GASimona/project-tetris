@@ -30,6 +30,7 @@ export default new Vuex.Store({
       hiScore: 2,
       score: 0,
       level: 1,
+      cleans: 0,
     },
     isStarted: false,
     speed: 1000,
@@ -76,6 +77,7 @@ export default new Vuex.Store({
       state.speed = 1000;
       state.aboutGame.score = 0;
       state.aboutGame.level = 1;
+      state.aboutGame.cleans = 0;
 
       state.nextPieceIndex= Math.floor(Math.random() * 7);
       state.currentPieceIndex= Math.floor(Math.random() * 7);
@@ -99,6 +101,7 @@ export default new Vuex.Store({
     hiScore: (state) => state.aboutGame.hiScore,
     score: (state) => state.aboutGame.score,
     level: (state) => state.aboutGame.level,
+    cleans: (state) => state.aboutGame.cleans,
     isStarted: (state) => state.isStarted,
     speed: (state) => state.speed,
     intervalId: (state) => state.intervalId

@@ -111,6 +111,10 @@ export default class TableGame {
   }
 
   anotherPieceInGame(state) {
+    state.aboutGame.score += 7;
+    if (state.aboutGame.hiScore < state.aboutGame.score) {
+      state.aboutGame.hiScore = state.aboutGame.score;
+    }
     state.currentPieceIndex = state.nextPieceIndex;
     state.nextPieceIndex = Math.floor(Math.random() * 7);
     this.setCurrentPiece(state, state.pieces[state.currentPieceIndex]);
@@ -150,6 +154,7 @@ export default class TableGame {
   }
 
   updateScore(state) {
+    state.aboutGame.cleans += 1;
     state.aboutGame.score += 1;
     if (state.aboutGame.hiScore < state.aboutGame.score) {
       state.aboutGame.hiScore = state.aboutGame.score;
@@ -157,7 +162,7 @@ export default class TableGame {
   }
   updateLevel(state) {
     var oldLevel = state.aboutGame.level;
-    state.aboutGame.level = Math.floor(state.aboutGame.score / 2) + 1;
+    state.aboutGame.level = Math.floor(state.aboutGame.cleans / 2) + 1;
     if (state.aboutGame.level != oldLevel) {
       clearInterval(state.intervalId);
       state.speed = (80 * state.speed) / 100;

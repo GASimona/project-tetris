@@ -1,11 +1,25 @@
 <template>
   <div class="control">
-    <div class="moveButtono">
+    <div class="resetPauseSoundRotate">
+      <div class="buttonSettings">
+        <input type="button" v-on:click="buttonPlayPause()" value="P" class="buttonPlayPause" />
+        <input type="button" v-on:click="buttonReset()" value="R" class="buttonReset" />
+        <input type="button" v-on:click="buttonSound()" value="S" class="buttonSound" />
+      </div>
       <input
-        type="button"
+      type="button"
         v-on:click="buttonTeleportDown()"
         value="↓↓"
         class="buttonTeleportDown"
+        v-bind:disabled="!isTheButtonEnabled"
+      />
+    </div>
+    <div class="moveButtono">
+      <input
+        type="button"
+        v-on:click="buttonRotate()"
+        value="↺"
+        class="buttonRotate"
         v-bind:disabled="!isTheButtonEnabled"
       />
       <div>
@@ -29,20 +43,6 @@
         v-on:click="buttonDown()"
         value="↓"
         class="buttonDown"
-        v-bind:disabled="!isTheButtonEnabled"
-      />
-    </div>
-    <div class="resetPauseSoundRotate">
-      <div class="buttonSettings">
-        <input type="button" v-on:click="buttonPlayPause()" value="P" class="buttonPlayPause" />
-        <input type="button" v-on:click="buttonReset()" value="R" class="buttonReset" />
-        <input type="button" v-on:click="buttonSound()" value="S" class="buttonSound" />
-      </div>
-      <input
-        type="button"
-        v-on:click="buttonRotate()"
-        value="↺"
-        class="buttonRotate"
         v-bind:disabled="!isTheButtonEnabled"
       />
     </div>
@@ -143,7 +143,7 @@ export default {
 .buttonLeft,
 .buttonRight,
 .buttonDown,
-.buttonTeleportDown {
+.buttonRotate {
   width: 3em;
   height: 3em;
   border-radius: 50%;
@@ -153,19 +153,15 @@ export default {
   cursor: pointer;
 }
 
+.buttonDown,
+.buttonRotate  {
+  position: relative;
+  left: 2.5em;
+}
 .buttonLeft {
   margin-right: 3em;
   position: relative;
-  left: -2em;
-}
-.buttonRight {
-  position: relative;
-  left: -2em;
-}
-.buttonDown,
-.buttonTeleportDown {
-  position: relative;
-  left: 1em;
+  left: -1em;
 }
 
 .buttonReset,
@@ -177,19 +173,20 @@ export default {
   margin: 1em;
   background-color: var(--bg-small-buttons);
   position: relative;
+  left: -5em;
   top: -1.25em;
   outline: none;
   cursor: pointer;
 }
-.buttonRotate {
+.buttonTeleportDown {
   width: 2em;
   height: 2em;
   border-radius: 50%;
   margin: 0.1em;
   font-size: 2em;
   position: relative;
-  left: 2em;
   top: -0.5em;
+  left: -0.15em;
   background-color: var(--bg-big-buttons);
   color: black;
   outline: none;
@@ -209,11 +206,11 @@ export default {
   .moveButtono,
   .resetPauseSoundRotate {
     position: relative;
-    top: -15px;
+    top: -0.75em;
   }
-  .buttonSettings {
+  .buttonTeleportDown {
     position: relative;
-    left: 30px;
+    left: -0.5em;
   }
 }
 </style>
