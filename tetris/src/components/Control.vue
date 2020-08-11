@@ -1,6 +1,6 @@
 <template>
   <div class="control">
-    <div class="resetPauseSoundRotate">
+    <div class="resetPauseSoundTeleportDown">
       <div class="buttonSettings">
         <input type="button" v-on:click="buttonPlayPause()" value="P" class="buttonPlayPause" />
         <input type="button" v-on:click="buttonReset()" value="R" class="buttonReset" />
@@ -193,8 +193,8 @@ export default {
   cursor: pointer;
 }
 
-.resetPauseSoundRotate,
-.resetPauseSoundRotate .buttonSettings {
+.resetPauseSoundTeleportDown,
+.resetPauseSoundTeleportDown .buttonSettings {
   margin-left: 1em;
   background-color: var(--bg-frame);
 }
@@ -204,7 +204,7 @@ export default {
     border-radius: 0;
   }
   .moveButtono,
-  .resetPauseSoundRotate {
+  .resetPauseSoundTeleportDown {
     position: relative;
     top: -0.75em;
   }
