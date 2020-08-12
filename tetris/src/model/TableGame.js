@@ -111,7 +111,7 @@ export default class TableGame {
   }
 
   anotherPieceInGame(state) {
-    state.aboutGame.score += 7;
+    state.aboutGame.score += 4;
     if (state.aboutGame.hiScore < state.aboutGame.score) {
       state.aboutGame.hiScore = state.aboutGame.score;
     }
@@ -155,7 +155,7 @@ export default class TableGame {
 
   updateScore(state) {
     state.aboutGame.cleans += 1;
-    state.aboutGame.score += 1;
+    state.aboutGame.score += 10;
     if (state.aboutGame.hiScore < state.aboutGame.score) {
       state.aboutGame.hiScore = state.aboutGame.score;
     }

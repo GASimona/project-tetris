@@ -2,6 +2,7 @@ export default class Piece {
   constructor(matrix) {
     this.matrix = matrix;
   }
+  
   rotateMatrix() {
     var rotateMatrix = [];
     for (let i = 0; i < 3; i++) {
@@ -12,6 +13,7 @@ export default class Piece {
     }
 
     this.matrix = rotateMatrix;
+
 
     
     this.matrix.push([]);
